@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 mkdir -p magento
 
 # Detect OS
@@ -25,3 +27,6 @@ mv composer.json.magento magento/composer.json
 
 docker-compose down
 docker-compose up -d --build
+
+# Install Magento and setup PHPUnit.
+docker exec -it web-magento1-phpunit bash -c "cd app && bash install-magento.sh"
