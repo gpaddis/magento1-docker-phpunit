@@ -1,9 +1,6 @@
 #!/bin/bash
 
-if [ ! -d "magento" ]; then
-    git clone https://github.com/OpenMage/magento-mirror.git magento
-    rm -rf magento/.git
-fi
+mkdir -p magento
 
 # Detect OS
 case `uname -s` in
@@ -22,6 +19,7 @@ searchAndReplace() {
     fi
 }
 
-searchAndReplace "/path/to/magento" "${PWD}/magento"
+searchAndReplace "/path/to/magento" "${PWD}/magento" docker-compose.yml
+cp install-magento.sh magento/.
 
 docker-compose up -d --build

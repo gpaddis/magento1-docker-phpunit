@@ -15,7 +15,7 @@ services:
           - PHP_POST_MAX_SIZE=500M
           - PHP_UPLOAD_MAX_FILESIZE=1024M
         volumes:
-          - /path/to/magento:/app:cached
+          - /path/to/magento:/magento:cached
         ports:
           - "80:80"
           - "443:443"
