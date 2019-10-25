@@ -7,7 +7,7 @@ services:
         user: application
         environment:
           - WEB_ALIAS_DOMAIN=magento1-phpunit.local
-          - WEB_DOCUMENT_ROOT=/app/pub
+          - WEB_DOCUMENT_ROOT=/app
           - PHP_DATE_TIMEZONE=EST
           - PHP_DISPLAY_ERRORS=1
           - PHP_MEMORY_LIMIT=2048M
@@ -15,7 +15,7 @@ services:
           - PHP_POST_MAX_SIZE=500M
           - PHP_UPLOAD_MAX_FILESIZE=1024M
         volumes:
-          - /path/to/magento:/magento:cached
+          - /path/to/magento:/app:cached
         ports:
           - "80:80"
           - "443:443"
