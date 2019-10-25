@@ -11,3 +11,4 @@ if [ ! -f "n98-magerun.phar" ]; then
 fi
 
 php n98-magerun.phar install --dbHost="${MAGENTO_DB_HOST}" --dbUser="${MAGENTO_DB_USER}" --dbPass="${MAGENTO_DB_PASS}" --dbName="${MAGENTO_DB_NAME}" --dbPort="${MAGENTO_DB_PORT}" --installSampleData=no --useDefaultConfigParams=yes --magentoVersionByName="${MAGENTO_VERSION}" --installationFolder="${PWD}" --baseUrl="${MAGENTO_BASE_URL}"
+composer install
