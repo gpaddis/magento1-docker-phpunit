@@ -1,0 +1,12 @@
+{
+    "repositories": [{
+        "type": "composer",
+        "url": "https://packages.firegento.com"
+    }],
+    "require": {
+        "ecomdev/ecomdev_phpunit": "^0.3.7"
+    },
+    "extra": {
+        "magento-root-dir": "/app"
+    }
+}

@@ -20,7 +20,8 @@ searchAndReplace() {
 }
 
 searchAndReplace "/path/to/magento" "${PWD}/magento" docker-compose.yml
-cp install-magento.sh magento/.
+mv install-magento.sh magento/.
+mv composer.json.magento magento/composer.json
 
 docker-compose down
 docker-compose up -d --build
