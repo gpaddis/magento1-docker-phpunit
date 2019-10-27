@@ -28,3 +28,6 @@ docker-compose up -d --build
 if [ ! -f magento/app/etc/local.xml ]; then
     docker exec -it web-magento1-phpunit bash -c "cd app && bash install-magento.sh"
 fi
+
+# Initialize the test database
+docker exec -it web-magento1-phpunit bash -c "cd app && ./vendor/bin/phpunit"
