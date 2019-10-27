@@ -29,5 +29,7 @@ if [ ! -f magento/app/etc/local.xml ]; then
     docker exec -it web-magento1-phpunit bash -c "cd app && bash install-magento.sh"
 fi
 
-# Initialize the test database
+# Create and initialize the test database
+docker exec -it mysql-magento1-phpunit bash -c "mysql -uroot -proot -e 'DROP SCHEMA IF EXISTS magento_tests; CREATE SCHEMA magento_tests'"
+echo "Initializing the test database..."
 docker exec -it web-magento1-phpunit bash -c "cd app && ./vendor/bin/phpunit"
