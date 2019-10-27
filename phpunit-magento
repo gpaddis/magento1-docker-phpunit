@@ -34,7 +34,7 @@ if [[ -f modman ]]; then
     cd $modmanDir
     modman repair $callingDirName
 else
-    echo "Waning: no modman file found in the current directory."
+    echo "Warning: no modman file found in the current directory."
 fi
 
 filter="$1"
