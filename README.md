@@ -1,5 +1,7 @@
 # PHPUnit & Magento 1: Docker Tests Container
 
 ## Setup
-1. Clone the repository anywhere on your disk and run `./setup.sh`.
-2. **Symlink** the script phpunit-magento in a directory present in your path, so that you have it globally available on your system.
+Clone the repository anywhere on your disk and run `./setup.sh`. The setup script will link the script `phpunit-magento` in your /usr/local/bin directory.
+
+## Usage
+Run `phpunit-magento` inside a module directory: the command will run the test suite for your module inside the container. You can optionally pass the name of a test class or method as a parameter to filter the test execution.

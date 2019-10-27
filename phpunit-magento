@@ -26,6 +26,8 @@ if [[ -f modman ]]; then
     cp -R $callingDir $modmanDir/.
     cd $modmanDir
     modman repair $callingDirName
+else
+    echo "Waning: no modman file found in the current directory."
 fi
 
 filter="$1"

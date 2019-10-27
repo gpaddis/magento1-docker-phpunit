@@ -33,3 +33,6 @@ fi
 docker exec -it mysql-magento1-phpunit bash -c "mysql -uroot -proot -e 'DROP SCHEMA IF EXISTS magento_tests; CREATE SCHEMA magento_tests'"
 echo "Initializing the test database (this can take up to a few minutes)..."
 docker exec -it web-magento1-phpunit bash -c "cd app && ./vendor/bin/phpunit"
+
+# Add phpunit-magento to bin
+ls -snf $PWD/phpunit-magento /usr/local/bin/phpunit-magento
