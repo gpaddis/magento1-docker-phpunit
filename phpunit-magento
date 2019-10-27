@@ -9,11 +9,13 @@ callingDir="$PWD"
 callingDirName="${PWD##*/}"
 
 cleanup() {
-    echo "Removing installed modules..."
     cd $magentoDir
-    for module in $(modman list); do
-        modman remove $module
-    done
+    if [ ! -z "$(modman list)" ]; then
+        echo "Removing installed modules..."
+        for module in $(modman list); do
+            modman remove $module
+        done
+    fi
 }
 
 dockerExec() {
@@ -21,6 +23,11 @@ dockerExec() {
 }
 
 trap cleanup EXIT
+
+if [[ $(docker ps | grep phpunit | wc -l) -lt 2 ]]; then
+    echo "Starting the PHPUnit container..."
+    cd $scriptDir && docker-compose up -d --build
+fi
 
 if [[ -f modman ]]; then
     cp -R $callingDir $modmanDir/.
