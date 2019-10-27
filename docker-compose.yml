@@ -27,13 +27,26 @@ services:
         container_name: mysql-magento1-phpunit
         restart: always
         ports:
-          - "3307:3306"
+          - "33070:3306"
         environment:
           - MYSQL_ROOT_PASSWORD=root
           - MYSQL_DATABASE=magento
         volumes:
           - db-data-magento1-phpunit:/var/lib/mysql
+    mysql-magento1-phpunit-tests:
+        image: mariadb:10
+        container_name: mysql-magento1-phpunit-tests
+        restart: always
+        ports:
+          - "33071:3306"
+        environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=magento_tests
+        volumes:
+          - db-data-magento1-phpunit-tests:/var/lib/mysql
 
 volumes:
     db-data-magento1-phpunit:
+        external: false
+    db-data-magento1-phpunit-tests:
         external: false
