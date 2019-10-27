@@ -1,6 +1,6 @@
 #!/bin/bash
 # Run the tests with PHPunit inside the container. An optional filter parameter
-# can be passed additionally, in order to execute specific tests only.
+# can be passed additionally, in order to execute specific classes / tests only.
 
 scriptDir="$(dirname $(readlink $0))"
 magentoDir="$scriptDir/magento"
@@ -33,7 +33,7 @@ fi
 filter="$1"
 
 cd $scriptDir
-# Run phpunit for all modules or just for specific classes / tests.
+# Run all tests or only specific classes / tests.
 if [ -z $filter ]; then
     echo "Running the test suite..."
     dockerExec "cd app && ./vendor/bin/phpunit"
