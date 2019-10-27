@@ -1,0 +1,41 @@
+#!/bin/bash
+# Run the tests with PHPunit inside the container. An optional filter parameter
+# can be passed additionally, in order to execute specific tests only.
+
+scriptDir="$(dirname $(readlink $0))"
+magentoDir="$scriptDir/magento"
+modmanDir="$magentoDir/.modman"
+callingDir="$PWD"
+callingDirName="${PWD##*/}"
+
+cleanup() {
+    echo "Removing installed modules..."
+    cd $magentoDir
+    for module in $(modman list); do
+        modman remove $module
+    done
+}
+
+dockerExec() {
+    docker exec -it web-magento1-phpunit bash -c "$1"
+}
+
+trap cleanup EXIT
+
+if [[ -f modman ]]; then
+    cp -R $callingDir $modmanDir/.
+    cd $modmanDir
+    modman repair $callingDirName
+fi
+
+filter="$1"
+
+cd $scriptDir
+# Run phpunit for all modules or just for specific classes / tests.
+if [ -z $filter ]; then
+    echo "Running the test suite..."
+    dockerExec "cd app && ./vendor/bin/phpunit"
+else
+    echo "Running the test suite for ${filter}..."
+    dockerExec "cd app && ./vendor/bin/phpunit --filter $filter"
+fi
