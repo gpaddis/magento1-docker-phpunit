@@ -9,3 +9,7 @@ Run `phpunit-magento` inside a module directory: the command will run the test s
 
 ## Reset
 If you mess up the test database, simply run the `setup.sh` script again. This will reset and rebuild container + database and will allow you to start with a fresh setup.
+
+## Troubleshooting
+### Performance on MacOS
+In general, you should increase the GBs available for Docker on MacOS to at lease 4 (default is 2) to have an acceptable performance. Check out [this guide](https://engageinteractive.co.uk/blog/making-docker-faster-on-mac).
