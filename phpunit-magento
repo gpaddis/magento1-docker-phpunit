@@ -32,7 +32,7 @@ fi
 if [[ -f modman ]]; then
     cp -R $callingDir $modmanDir/.
     cd $modmanDir
-    modman repair $callingDirName
+    modman deploy $callingDirName
 else
     echo "Warning: no modman file found in the current directory."
 fi
