@@ -15,7 +15,7 @@ services:
           - PHP_POST_MAX_SIZE=500M
           - PHP_UPLOAD_MAX_FILESIZE=1024M
         volumes:
-          - /path/to/magento:/app:cached
+          - /path/to/magento:/app:delegated
         links:
           - mysql-magento1-phpunit
     mysql-magento1-phpunit:
@@ -26,7 +26,7 @@ services:
           - MYSQL_ROOT_PASSWORD=root
           - MYSQL_DATABASE=magento_tests
         volumes:
-          - db-data-magento1-phpunit:/var/lib/mysql
+          - db-data-magento1-phpunit:/var/lib/mysql:delegated
 
 volumes:
     db-data-magento1-phpunit:
