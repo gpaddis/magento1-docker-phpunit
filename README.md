@@ -1,5 +1,5 @@
 # PHPUnit & Magento 1: Docker Tests Container
-A container setup to run the test suite for you Magento 1 module + [Ecomdev PHPUnit](https://github.com/EcomDev/EcomDev_PHPUnit) on your machine with zero effort.
+A container setup to run your Magento 1 module test suite with [Ecomdev PHPUnit](https://github.com/EcomDev/EcomDev_PHPUnit) on your machine. Zero effort required.
 
 ## Setup
 Clone the repository anywhere on your disk and run `./setup.sh`. The setup script will link the script `phpunit-magento` in your /usr/local/bin directory.
