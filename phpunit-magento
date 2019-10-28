@@ -34,7 +34,8 @@ if [[ -f modman ]]; then
     cd $modmanDir
     modman deploy $callingDirName
 else
-    echo "Warning: no modman file found in the current directory."
+    echo "Error: no modman file found in the current directory."
+    exit 1
 fi
 
 filter="$1"
