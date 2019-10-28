@@ -30,7 +30,8 @@ if [ ! -f magento/app/etc/local.xml ]; then
 fi
 
 # Add phpunit-magento to bin
-ln -snf $PWD/phpunit-magento /usr/local/bin/phpunit-magento
+echo "Linking phpunit-magento to /usr/local/bin..."
+sudo ln -snf ${PWD}/phpunit-magento /usr/local/bin/phpunit-magento
 
 # Create and initialize the test database
 docker exec -it mysql-magento1-phpunit bash -c "mysql -uroot -proot -e 'DROP SCHEMA IF EXISTS magento_tests; CREATE SCHEMA magento_tests'"
