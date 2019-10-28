@@ -13,3 +13,6 @@ If you mess up the test database, simply run the `setup.sh` script again. This w
 ## Troubleshooting
 ### Performance on MacOS
 In general, you should increase the GBs available for Docker on MacOS to at least 4 (default is 2) to have an acceptable performance. Check out [this guide](https://engageinteractive.co.uk/blog/making-docker-faster-on-mac).
+
+## Credits
+A big **thank you** to WebDevOps for their [great images](https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-apache-dev.html). It worked out of the box from the first moment!
