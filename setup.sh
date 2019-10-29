@@ -19,8 +19,6 @@ searchAndReplace() {
     fi
 }
 
-searchAndReplace "/path/to/magento" "${PWD}/magento" docker-compose.yml
-
 docker-compose down
 docker-compose up -d --build
 
