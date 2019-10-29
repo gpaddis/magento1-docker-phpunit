@@ -4,7 +4,6 @@ services:
         image: webdevops/php-apache-dev:5.6
         container_name: web-magento1-phpunit
         restart: always
-        user: application
         environment:
           - WEB_ALIAS_DOMAIN=magento1-phpunit.local
           - WEB_DOCUMENT_ROOT=/app
