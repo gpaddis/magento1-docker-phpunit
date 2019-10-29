@@ -29,14 +29,15 @@ if [[ $(docker ps | grep phpunit | wc -l) -lt 2 ]]; then
     cd $scriptDir && docker-compose up -d --build
 fi
 
-if [[ -f modman ]]; then
-    cp -R $callingDir $modmanDir/.
-    cd $modmanDir
-    modman deploy $callingDirName
-else
+if [ ! -f "${callingDir}/modman" ]; then
     echo "Error: no modman file found in the current directory."
     exit 1
 fi
+
+# Deploy the module.
+cp -R $callingDir $modmanDir/.
+cd $modmanDir
+modman deploy $callingDirName
 
 filter="$1"
 
