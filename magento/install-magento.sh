@@ -15,6 +15,7 @@ if [ ! -f modman ]; then
     wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
     chmod +x modman
     ./modman init
+    chmod -R 777 .modman
 fi
 
 php n98-magerun.phar install --dbHost="${MAGENTO_DB_HOST}" --dbUser="${MAGENTO_DB_USER}" --dbPass="${MAGENTO_DB_PASS}" --dbName="${MAGENTO_DB_NAME}" --dbPort="${MAGENTO_DB_PORT}" --installSampleData=no --useDefaultConfigParams=yes --magentoVersionByName="${MAGENTO_VERSION}" --installationFolder="${PWD}" --baseUrl="${MAGENTO_BASE_URL}"

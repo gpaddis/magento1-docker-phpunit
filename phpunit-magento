@@ -13,7 +13,7 @@ cleanup() {
     if [ ! -z "$(modman list)" ]; then
         echo "Removing installed modules..."
         for module in $(modman list); do
-            modman remove $module
+            dockerExec "cd app && ./modman remove $module"
         done
     fi
 }
@@ -36,8 +36,7 @@ fi
 
 # Deploy the module.
 cp -R $callingDir $modmanDir/.
-cd $modmanDir
-modman deploy $callingDirName
+dockerExec "cd app && ./modman deploy $callingDirName"
 
 filter="$1"
 
